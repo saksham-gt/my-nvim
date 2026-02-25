@@ -1,7 +1,16 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.cmd("syntax on")
-
+vim.opt.mouse='a'
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.expandtab = true
+vim.opt.shiftwidth= 4
+vim.opt.tabstop = 4
+vim.g.mapleader = ' '
+vim.g.maplocalleader=","
+vim.opt.termguicolors = true
 require("config.lazy")
+require("config.keymaps")
+
 
 
