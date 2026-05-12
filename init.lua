@@ -12,5 +12,16 @@ vim.opt.termguicolors = true
 require("config.lazy")
 require("config.keymaps")
 
+-- Autosave: write on insert-leave and on any change in normal mode.
+-- Skips unnamed/scratch buffers; silent! swallows read-only errors.
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+  pattern = "*",
+  callback = function()
+    if vim.bo.buftype == "" and vim.api.nvim_buf_get_name(0) ~= "" then
+      vim.cmd("silent! write")
+    end
+  end,
+})
+
 
 
